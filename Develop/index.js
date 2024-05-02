@@ -6,38 +6,38 @@ import inquirer from "inquirer";
 const questions = [
   {
     type: "input",
-    name: "name",
+    name: "projectName",
     message: "Enter your project's title:",
   },
   {
     type: "input",
-    name: "name",
+    name: "projectDescription",
     message: "Enter your project's description:",
   },
   {
     type: "input",
-    name: "name",
+    name: "installSteps",
     message: "Enter installation steps:",
   },
   {
     type: "input",
-    name: "name",
+    name: "useSteps",
     message: "Enter steps for usage:",
   },
   {
     type: "input",
-    name: "name",
+    name: "contributeSteps",
     message: "How can other developers contribute to your project?",
   },
   {
     type: "input",
-    name: "name",
+    name: "runTestSteps",
     message: "How can other developers run tests on your project's code?",
   },
   {
     type: "checkbox",
     message: "Choose your project's license:",
-    name: "stack",
+    name: "projectLicense",
     choices: [
       "Creative Commons license family",
       "Creative Commons Zero v1.0 Universal",
@@ -70,12 +70,12 @@ const questions = [
   },
   {
     type: "input",
-    name: "name",
+    name: "githubUsername",
     message: "Enter your Github username:",
   },
   {
     type: "input",
-    name: "name",
+    name: "emailAddress",
     message: "Enter your email address:",
   },
 ];

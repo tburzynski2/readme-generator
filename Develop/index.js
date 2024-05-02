@@ -97,7 +97,6 @@ function writeToFile(fileName, data) {
 function init() {
   inquirer.prompt(questions).then((data) => {
     const filename = `${data.name.toLowerCase().split(" ").join("")}.json`;
-
     writeToFile(filename, data);
   });
 }

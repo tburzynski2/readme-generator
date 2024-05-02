@@ -39,6 +39,7 @@ const questions = [
     message: "Choose your project's license:",
     name: "projectLicense",
     choices: [
+      "None",
       "Creative Commons license family",
       "Creative Commons Zero v1.0 Universal",
       "Creative Commons Attribution 4.0",

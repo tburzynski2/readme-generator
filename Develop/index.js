@@ -2,6 +2,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
+const filePath = "../output/README.md";
+
 // TODO: Create an array of questions for user input
 const questions = [
   {
@@ -86,9 +88,37 @@ const questions = [
   },
 ];
 
+// Format text into markdown format for README file
+function formatToMarkdown(text) {
+  return `# ${text.projectName}
+
+## Description
+${text.projectDescription}
+
+## Installation
+${text.installSteps}
+
+## Usage
+${text.useSteps}
+
+## Contributing
+${text.contributeSteps}
+
+## Testing
+${text.runTestSteps}
+
+## License
+${text.projectLicense}
+
+## Contact
+- Github: ${text.githubUsername}
+- Email: ${text.emailAddress}
+`;
+}
+
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-  fs.writeFile(fileName, JSON.stringify(data, null, "\t"), (err) =>
+function writeToFile(data) {
+  fs.writeFile(filePath, formatToMarkdown(data), (err) =>
     err ? console.log(err) : console.log("Success!")
   );
 }
@@ -96,12 +126,7 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((data) => {
-    console.log(data);
-    const filename = `${data.projectName
-      .toLowerCase()
-      .split(" ")
-      .join("-")}.json`;
-    writeToFile(filename, JSON.stringify(data));
+    writeToFile(data);
   });
 }
 

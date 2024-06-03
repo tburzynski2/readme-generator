@@ -1,6 +1,6 @@
 // TODO: Include packages needed for this application
 const fs = require("fs");
-import inquirer from "inquirer";
+const inquirer = require("inquirer");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -96,8 +96,12 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
   inquirer.prompt(questions).then((data) => {
-    const filename = `${data.name.toLowerCase().split(" ").join("")}.json`;
-    writeToFile(filename, data);
+    console.log(data);
+    const filename = `${data.projectName
+      .toLowerCase()
+      .split(" ")
+      .join("-")}.json`;
+    writeToFile(filename, JSON.stringify(data));
   });
 }
 
